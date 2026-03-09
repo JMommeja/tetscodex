@@ -15,7 +15,7 @@ type Props = {
 
 export default function VersionCard(props: Props) {
   return (
-    <article className="rounded-lg border border-gray-700 bg-panel p-4">
+    <article className="panel">
       <div className="flex items-start justify-between gap-4">
         <div>
           <h3 className="font-semibold text-white">
@@ -31,7 +31,7 @@ export default function VersionCard(props: Props) {
       <div className="mt-3 flex flex-wrap gap-2">
         {props.tags.length > 0 ? (
           props.tags.map((tag) => (
-            <span key={tag} className="rounded-full border border-gray-600 px-2 py-1 text-xs text-gray-300">
+            <span key={tag} className="tag-chip">
               #{tag}
             </span>
           ))

@@ -49,3 +49,8 @@ Tables utilisées:
 2. Rendre formulaire ajout/version persistant (insert versions + tags).
 3. Ajouter vote upsert côté utilisateur connecté.
 4. Ajouter recherche globale et filtres réels (tag/type/date).
+
+## Styling
+
+- Fichier de style opérable: `app/ui.css` (classes réutilisables).
+- Guide rapide: `STYLE_GUIDE.md`.
