@@ -18,6 +18,15 @@ NEXT_PUBLIC_SUPABASE_URL=...
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 ```
 
+
+## Preview en ligne (Vercel)
+
+Si tu veux tester sans lancer en local, déploie en preview Vercel:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+
+Guide pas-à-pas: `DEPLOY_PREVIEW.md`.
+
 ## Lancer en local
 
 ```bash
