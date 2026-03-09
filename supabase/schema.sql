@@ -25,7 +25,8 @@ create table tracks (
   album_id bigint not null references albums(id) on delete cascade,
   title text not null,
   slug text not null unique,
-  track_number int
+  track_number int,
+  source_url text
 );
 
 create table versions (
@@ -76,3 +77,17 @@ create table reports (
   reason text not null,
   created_at timestamptz default now()
 );
+
+insert into artists (name, slug) values
+('Kanye West', 'kanye-west');
+
+insert into albums (artist_id, title, slug, release_year) values
+(1, 'Graduation', 'graduation', 2007),
+(1, 'My Beautiful Dark Twisted Fantasy', 'mbdtf', 2010),
+(1, 'Yandhi / Unreleased', 'yandhi-unreleased', 2018);
+
+insert into tracks (album_id, title, slug, track_number, source_url) values
+(1, 'I Wonder', 'i-wonder', 4, 'https://www.youtube.com/watch?v=7gHisR4xmOk'),
+(1, 'Stronger', 'stronger', 3, 'https://www.youtube.com/watch?v=PsO6ZnUZI0g'),
+(1, 'Flashing Lights', 'flashing-lights', 7, 'https://www.youtube.com/watch?v=ila-hAUXR5U'),
+(2, 'Runaway', 'runaway', 9, 'https://www.youtube.com/watch?v=VhEoCOWUtcU');

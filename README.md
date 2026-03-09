@@ -6,8 +6,17 @@ Prototype Next.js d'une archive communautaire pour versions alternatives de morc
 
 - Pages: accueil, artiste, album, morceau, version, ajout de version, auth.
 - Navigation orientée albums -> tracks -> versions.
-- Données mock en mémoire (`lib/data.ts`) pour démarrer vite.
-- Éléments de produit visibles: recherche (UI), upvote (UI score), commentaires (UI), tags, signalement de lien mort.
+- Données branchées sur Supabase (plus de dataset mock en mémoire).
+- Éléments de produit visibles: recherche (UI), upvote (compteur), commentaires, tags, signalement de lien mort.
+
+## Variables d'environnement
+
+Créer un `.env.local` avec:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+```
 
 ## Lancer en local
 
@@ -16,9 +25,12 @@ npm install
 npm run dev
 ```
 
-## Modèle de données cible (Supabase)
+## Base de données
 
-Tables prévues pour la phase base de données:
+- Le schéma + seed initial Kanye sont dans `supabase/schema.sql`.
+- Appliquer ce script dans Supabase SQL Editor avant de démarrer l'app.
+
+Tables utilisées:
 
 - users
 - artists
@@ -33,8 +45,7 @@ Tables prévues pour la phase base de données:
 
 ## Prochaines étapes
 
-1. Brancher Supabase et remplacer les données mock.
-2. Implémenter auth réelle.
-3. Rendre formulaire ajout/version persistant.
-4. Ajouter vote unique par utilisateur/version.
-5. Ajouter filtres/tri réels côté page morceau.
+1. Implémenter auth réelle Supabase (sessions + policies RLS).
+2. Rendre formulaire ajout/version persistant (insert versions + tags).
+3. Ajouter vote upsert côté utilisateur connecté.
+4. Ajouter recherche globale et filtres réels (tag/type/date).
